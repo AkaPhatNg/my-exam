@@ -1,20 +1,22 @@
 .App {
   text-align: center;
+  font-family: 'Arial', sans-serif;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  margin-bottom: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #20232a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,10 +24,22 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 20px;
 }
 
 .App-link {
   color: #61dafb;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 2px solid #61dafb;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.App-link:hover {
+  background-color: #61dafb;
+  color: #20232a;
+  transform: scale(1.05);
 }
 
 @keyframes App-logo-spin {
