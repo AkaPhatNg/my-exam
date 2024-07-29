@@ -21,16 +21,12 @@ INSERT INTO PhieuSanPham (
     NguoiChiuTrachNhiem,
     MaSoNguoiChiuTrachNhiem,
     GhiChu)
-VALUES (
-    'Z37 111111',
-    '2009-12-12',
-    'Máy tính sách tay Z37',
-    'Z37E',
-    'Nguyễn Văn An',
-    987688,
-    'Lưu ý một sản phẩm thuộc một loại và một người có thể chịu trách nhiệm cho nhiều sản phẩm thuộc nhiều loại khác nhau.'
-);
-GO 
+VALUES
+    ('Z37 666666', '2009-12-14', 'Máy tính sách tay Z43', 'Z37E', 'Nguyễn Văn An', 987688, 'Lưu ý một sản phẩm thuộc một loại và một người có thể chịu trách nhiệm cho nhiều sản phẩm thuộc nhiều loại khác nhau.'),
+    ('P45 222222', '2010-05-20', 'Điện thoại P45', 'P45X', 'Trần Thị B', 123456, 'Sản phẩm thuộc danh mục điện thoại.'),
+    ('K89 333333', '2011-08-15', 'Máy ảnh K89', 'K89C', 'Lê Văn C', 654321, 'Máy ảnh chuyên nghiệp với nhiều tính năng hiện đại.'),
+    ('L67 444444', '2012-01-30', 'Máy giặt L67', 'L67W', 'Phạm Thị D', 789012, 'Máy giặt với công nghệ tiên tiến tiết kiệm năng lượng.');
+GO
 --liet ke danh sach loai san pham cua cong ty
 SELECT DISTINCT MaLoaiSanPham, TenLoaiSanPham
 FROM PhieuSanPham;
@@ -145,29 +141,3 @@ BEGIN
     DELETE FROM SanPham
     WHERE LoaiSP_ID = @LoaiSP_ID;
 END;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
