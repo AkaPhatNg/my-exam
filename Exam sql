@@ -1,0 +1,60 @@
+CREATE DATABASE EmployeeDB;
+GO
+
+USE EmployeeDB;
+GO
+
+CREATE TABLE Department (
+    DepartID INT PRIMARY KEY,
+    DepartName VARCHAR(50) NOT NULL,
+    Description VARCHAR(100) NOT NULL
+);
+GO
+
+CREATE TABLE Employee (
+    EmpCode CHAR(6) PRIMARY KEY,
+    FirstName VARCHAR(30) NOT NULL,
+    LastName VARCHAR(30) NOT NULL,
+    Birthday SMALLDATETIME NOT NULL,
+    Gender BIT DEFAULT 1,
+    Address VARCHAR(100),
+    DepartID INT FOREIGN KEY REFERENCES Department(DepartID),
+    Salary MONEY
+);
+GO
+
+INSERT INTO Department (DepartID, DepartName, Description)
+VALUES
+    (1, 'IT', 'Information Technology'),
+    (2, 'HR', 'Human Resources'),
+    (3, 'Finance', 'Financial Department'),
+    (4, 'Marketing', 'Marketing Department');
+
+INSERT INTO Employee (EmpCode, FirstName, LastName, Birthday, Gender, Address, DepartID, Salary)
+VALUES
+    ('E00001', 'John', 'Doe', '1985-07-15', 1, '123 Main St, Anytown USA', 1, 65000.00),
+    ('E00002', 'Jane', 'Smith', '1990-03-21', 0, '456 Oak Rd, Anytown USA', 2, 55000.00),
+    ('E00003', 'Michael', 'Johnson', '1982-11-08', 1, '789 Elm St, Anytown USA', 3, 75000.00),
+    ('E00004', 'Emily', 'Brown', '1993-05-06', 0, '321 Pine Rd, Anytown USA', 4, 50000.00),
+    ('E00005', 'David', 'Lee', '1988-09-19', 1, '654 Maple Ave, Anytown USA', 1, 60000.00);
+
+SELECT * FROM Department;
+GO
+
+SELECT * FROM Employee;
+GO
+
+SELECT e.FirstName, e.LastName, d.DepartName
+FROM Employee e
+JOIN Department d ON e.DepartID = d.DepartID
+WHERE d.DepartName = 'IT';
+GO
+
+SELECT e.FirstName, e.LastName, e.Salary
+FROM Employee e
+ORDER BY e.Salary DESC;
+GO
+
+SELECT e.FirstName, e.LastName, e.Birthday
+FROM Employee e
+ORDER BY e.Birthday ASC;
